@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./scripts/app.js"></script>
+    <title>List Task</title>
+  </head>
+  <body>
+    <header>
+      <h1>Tasks</h1>
+    </header>
+    <main>
+      <form id="form-create-task">
+        <input type="text" id="form-title" placeholder="Title...">
+        <input type="text" id="form-description" placeholder="Description...">
+        <button>Add</button>
+      </form>
+      <div class="filter-container">
+        <input type="text" id="search" placeholder="Title..." >
+        <input type="checkbox" id="filter-status">
+        <label for="filter-status">Pending</label>
+      </div>
+      <section id="section-tasks">
+
+      </section>
+    </main>
+
+    <footer>
+      <h4>Ramiro Rojas</h4>
+    </footer>
+  </body>
+</html>
