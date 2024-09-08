@@ -2,41 +2,71 @@ const $form = document.getElementById("form-create-task");
 
 const $tasks = document.getElementById("section-tasks");
 
+const $filterTasks = document.getElementById("filter-tasks");
+
 const $search = document.getElementById("search");
 
 const $status = document.getElementById("filter-status");
 
-const tasks = JSON.parse(localStorage.getItem('tasks')) || []
+let tasks = JSON.parse(localStorage.getItem('tasks')) || []
 
-let id = [tasks.length - 1]?.id || 0;
 
 printTasks(tasks, $tasks, createCardTask);
 
 //Events
 
+
+//Create new tasks
 $form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const title = e.target[0].value;
   const description = e.target[1].value;
-
+  //Id random
+  const id = Math.random().toString(36).slice(2)
   if (title == "") {
     alert("Please put a title");
   } else if (description == "") {
     alert("Please put a description");
   } else {
-    const newTask = createTask({ title, description, id: ++id });
+    const newTask = createTask({ title, description, id });
     tasks.push(newTask);
     localStorage.setItem("tasks", JSON.stringify(tasks));
     printTasks(tasks, $tasks, createCardTask);
   }
 });
 
+//Change status task or delete them
 $tasks.addEventListener('click', (e)=>{
   const dataSet = e.target.dataset
-  console.log(dataSet);
+  if (dataSet.status) {
+    let task = tasks.find( task => task.id === dataSet.status)
+    task.status = !task.status
+    // console.log(task);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    printTasks(tasks, $tasks, createCardTask);
+  }
+  if(dataSet.delete){
+    console.log(dataSet);
+    tasks = tasks.filter(task => task.id !== dataSet.delete)
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    printTasks(tasks, $tasks, createCardTask);
+    
+  }
+})
+
+//Event filter Tasks
+$filterTasks.addEventListener('input', e =>{
+  // console.log($status.checked);
+  
+  let tasksFiltered = tasks.filter(task => task.title.toLowerCase().includes($search.value.toLowerCase()) && ( !$status.checked || $status.checked != task.status))
+  // console.log(tasksFiltered);
+
+  printTasks(tasksFiltered, $tasks, createCardTask)
   
 })
+
+
 
 //Functions
 
