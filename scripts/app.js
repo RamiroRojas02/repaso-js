@@ -103,7 +103,7 @@ function createCardTask({ id, title, description, status }) {
   $btnStatus.setAttribute("data-status", id);
   $btnStatus.textContent = status ? "Complete" : "Pending";
 
-  $article.append($h4, $btnDelete, $p, $btnStatus);
+  $article.append($btnDelete, $h4,  $p, $btnStatus);
 
   return $article;
 }

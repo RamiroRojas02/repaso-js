@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: #453745;
+}
+
+header {
+  width: 100%;
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #453745;
+}
+h1 {
+  text-align: center;
+  width: 20%;
+  border-radius: 1rem;
+  background-color: #613c4c;
+}
+main {
+  min-height: 70vh;
+}
+footer {
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+button {
+    background-color: #000103;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+#form-create-task {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+
+}
+#section-tasks{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+.card-task{
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+    background-color: #35313b;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.card-task h4{
+    width: 100%;
+}
+.card-task p{
+    width: 100%;
+}
+.btn-delete-task{
+    width: 30%;
+    text-align: center;
+    background-color: #aa0433;
+}
+.btn-complete-task{
+    width: 100%;
+    text-align: center;
+    background-color: #076817;
+}
+.btn-complete-task:hover{
+    background-color: #0bdc2e
+}
+.btn-pending-task{
+    width: 100%;
+    text-align: center;
+    background-color: #690303;
+}
+.btn-pending-task:hover{
+    background-color: #f80909
+}
